@@ -1,0 +1,12 @@
+[ambari-server]
+pandrade-1
+
+[ambari-clients]
+pandrade-2
+pandrade-3
+pandrade-4
+pandrade-5
+
+[ambari-server:vars]
+# Local variables for Ansible playbooks
+repo_url=http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.3.0/ambari.repo

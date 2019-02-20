@@ -1,0 +1,63 @@
+# Ansible playbook to deploy helloApp in cento6.X/7.X
+
+---
+
+- hosts: ambari-server
+  become: yes
+  become_method: sudo
+  tasks:
+
+    - name: add or modify nofile soft limit 
+      pam_limits:
+        domain: '*'
+        limit_type: soft
+        limit_item: nofile
+        value: 64000
+
+    # Disable SELinux
+    - selinux:
+        state: disabled
+
+    - name: stop and disable firewalld 
+      systemd: 
+        name: firewalld 
+        state: stopped
+        enabled: False
+      ignore_errors: yes
+
+
+    - name: set /etc/hosts if DNS not available
+      copy:
+        remote_src: no
+        src: hostnames
+        dest: /etc/hosts
+        owner: root
+        group: root
+        mode: 0644
+
+
+    - name: install ntp
+      yum:
+        name: ntp
+        state: present
+    
+
+    - name: start ntp 
+      systemd:
+        name: ntpd
+        state: started
+
+    - name: Add ambari repository
+      yum_repository:
+        name: ambari
+        description: Ambari repository
+        baseurl: '{{repo_url}}'
+
+    - name: install ambari-server
+      yum:
+        name: ambari-server
+        state: present
+
+
+
+    

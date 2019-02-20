@@ -1,0 +1,9 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+172.26.80.58   pandrade-5.openstacklocal.com pandrade-5
+172.26.80.57   pandrade-4.openstacklocal.com pandrade-4
+172.26.80.55  pandrade-3.openstacklocal.com pandrade-3
+172.26.80.56   pandrade-2.openstacklocal.com pandrade-2
+172.26.80.54   pandrade-1.openstacklocal.com pandrade-1
+
