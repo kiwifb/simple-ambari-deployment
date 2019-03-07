@@ -5,10 +5,17 @@ pandrade-1
 pandrade-[2:5]
 
 [all-nodes]
-pandrade-[1:5]
+pandrade-[1:4]
 
 [db-host]
 pandrade-1
+
+
+[ambari-clients:vars]
+key_url=http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos7/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
+repo_url=http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.3.0
+ambari_version=2.7.3.0
+ambari_server_hn=pandrade-1
 
 [db-host:vars]
 db=postgres
@@ -18,10 +25,9 @@ db_username=ambari
 db_password=bigdata
 db_port=5432
 
-
 [ambari-server:vars]
 # Local variables for Ansible playbooks
-repo_url=http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.3.0/
+repo_url=http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.3.0
 ambari_version=2.7.3.0
 db=postgres
 db_host=pandrade-1
@@ -32,5 +38,5 @@ db_port=5432
 
 [ambari-clients:vars]
 # Local variables for Ansible playbooks
-repo_url=http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.3.0/
+repo_url=http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.3.0
 ambari_version=2.7.3.0

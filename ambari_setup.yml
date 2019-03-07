@@ -19,7 +19,7 @@
     - name: start ambari-server
       systemd:
         name: ambari-server
-        state: started
+        state: restarted
 
         
     

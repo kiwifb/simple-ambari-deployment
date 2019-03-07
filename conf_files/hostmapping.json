@@ -1,0 +1,38 @@
+{
+  "blueprint" : "multinode-hdp",
+  "default_password" : "hadoop",
+  "host_groups" :[
+    {
+      "name" : "host2",
+      "hosts" : [
+      {
+      "fqdn" : "pandrade-2.openstacklocal.com"
+      }
+      ]
+    },
+    {
+      "name" : "host3",
+      "hosts" : [
+      {
+      "fqdn" : "pandrade-3.openstacklocal.com"
+      }
+      ]
+    },
+    {
+      "name" : "host4",
+      "hosts" : [
+      {
+      "fqdn" : "pandrade-4.openstacklocal.com"
+      }
+      ]
+    },
+    {
+      "name" : "host5",
+      "hosts" : [
+      {
+      "fqdn" : "pandrade-5.openstacklocal.com"
+      }
+      ]
+    }
+  ]
+}

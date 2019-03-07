@@ -15,6 +15,9 @@
     - selinux:
         state: disabled
 
+    - name: setenforce
+      shell: setenforce 0
+
     - name: stop and disable firewalld 
       systemd: 
         name: firewalld 

@@ -1,11 +1,11 @@
 - hosts: db-host
-  become: yes
-  become_method: sudo
+#  become: yes
+#  become_method: sudo
   tasks:
 
     - name: Install postgresql
       package:
-        name: postgresql-server
+        name: postgresql
         state: latest
 
     - name: Install python-psycopg2
@@ -18,6 +18,9 @@
         path: /var/lib/pgsql/data/postgresql.conf
         regexp: "listen_addresses = 'localhost'"
         line: "listen_addresses = '*'"
+
+ #   - name: init db psql
+ #     command: service postgresql initdb
 
     - name: Copy a new pg_hba.conf to remote
       copy:
