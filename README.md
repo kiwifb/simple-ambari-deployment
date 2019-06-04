@@ -1,5 +1,5 @@
 # ambari_deploy
-Deploy Ambari server ith ansible
+Deploy Ambari server with ansible. In the end you will have a cluster that is ready to install HDP
 
 ### The playbook will:
 
@@ -21,6 +21,7 @@ cd ambari_deploy
 ## Deploying the app
 
 Edit the host file and deploy.sh file and run:
+
 ```
 ./deploy.sh
 ```
@@ -28,6 +29,6 @@ Edit the host file and deploy.sh file and run:
 ## Access Ambari Server 
 
 ```
-In your brownser:  "http://<ambari-server host>:8080"
+In your browser:  "http://<ambari-server host>:8080"
 ```
 
