@@ -20,7 +20,7 @@ cd ambari_deploy
 
 ## Deploying the app
 
-Edit the host file and deploy.sh file and run:
+Edit the inventory file and deploy.sh file and run:
 
 ```
 ./deploy.sh
