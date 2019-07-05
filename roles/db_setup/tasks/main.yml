@@ -1,0 +1,41 @@
+# Ansible role to create Ambari DB in PostgreSQL
+
+---
+
+- name: Ansible copy file to remote server
+  template: src=Ambari-DDL-Postgres-CREATE.sql dest=/tmp/
+
+
+# Create a new database 
+- postgresql_db:
+    name: '{{db_name}}'
+
+# Create user 
+- postgresql_user:
+    name: '{{db_username}}'
+    password: '{{db_password}}'
+
+- postgresql_privs:
+    db: postgres
+    privs: ALL
+    type: database
+    obj: '{{db_name}}'
+    role: '{{db_username}}'
+
+- name: psql create schema
+  command: psql -c "CREATE SCHEMA {{db_name}} AUTHORIZATION {{db_username}};"
+
+- name: psql alter schema
+  command: psql -c "ALTER SCHEMA {{db_name}} OWNER TO {{db_username}};"
+
+- name: psql alter role
+  command: psql -c "ALTER ROLE {{db_username}} SET search_path to '{{db_name}}', 'public';"
+
+- name: load schema
+  shell: psql "dbname={{ db_name }} user={{ db_username }} password={{ db_password }}" < /tmp/Ambari-DDL-Postgres-CREATE.sql
+
+
+- name: Clean SQL file
+  file:
+    state: absent
+    path: /tmp/Ambari-DDL-Postgres-CREATE.sql

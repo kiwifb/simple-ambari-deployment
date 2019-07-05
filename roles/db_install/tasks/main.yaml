@@ -1,0 +1,64 @@
+# Ansible role to deploy PostgreSQL Server
+
+---
+
+- name: Install postgresql
+  package:
+    name: postgresql-server
+    state: latest
+
+- name: Install python-psycopg2
+  package:
+    name: python-psycopg2
+    state: latest
+
+- name: init db psql
+  command: postgresql-setup initdb
+
+
+- name: start postgresql-server
+  systemd:
+    name: postgresql
+    state: started
+
+
+- name: change postgres network binding
+  lineinfile:
+    path: /var/lib/pgsql/data/postgresql.conf
+    regexp: "listen_addresses = 'localhost'"
+    line: "listen_addresses = '*'"
+
+#- name: Copy a new pg_hba.conf to remote
+#  copy:
+#    src: roles/templates/pg_hba.conf.orig
+#    dest: /var/lib/pgsql/data/pg_hba.conf
+#    owner: postgres
+#    group: postgres
+#    mode: 0600
+#    backup: yes
+
+- name: Configure the postgresql-server 
+  template: src=pg_hba.conf.orig dest=/var/lib/pgsql/data/pg_hba.conf
+
+- name: start postgresql-server
+  systemd:
+    name: postgresql
+    state: restarted
+
+
+
+
+
+
+
+
+
+
+      
+   
+      
+    
+    
+        
+
+

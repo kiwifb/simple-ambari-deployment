@@ -1,0 +1,37 @@
+---
+## This playbook deploys Ambari server, Ambari clients and postgresql database
+
+# Apply common configuration to all hosts
+- hosts: all
+  become: yes
+  become_method: sudo
+
+  roles:
+  - environment
+
+# Configure and deploy ambari server together with postgres
+- hosts: ambari-server
+  become: yes
+  become_method: sudo
+
+  roles:
+  - ambari-server
+  - db_install
+
+- hosts: ambari-server
+  become: yes
+  become_user: postgres
+  become_method: sudo
+
+  roles:
+    - db_setup
+
+- hosts: ambari-server
+  become: yes
+  become_method: sudo
+
+  roles:
+    - ambari-server-setup
+
+
+

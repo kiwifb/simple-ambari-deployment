@@ -1,0 +1,10 @@
+---
+# The variables file used by the playbooks in the ambari-clients group.
+# These don't have to be explicitly imported by vars_files: they are autopopulated.
+
+db: postgres
+db_host: pandrade-1
+db_name: ambari
+db_username: ambari
+db_password: bigdata
+db_port: 5432

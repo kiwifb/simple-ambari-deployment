@@ -1,0 +1,23 @@
+# Ansible role to deploy an Ambari Server
+
+---
+
+- name: Add the Ambari repository (yum)
+  yum_repository:
+    name: "ambari"
+    description: "ambari Version - ambari-{{ ambari_version }}"
+    baseurl: "{{ repo_url }}"
+    file: 'ambari'
+    state: present
+    gpgcheck: yes
+    gpgkey: "{{ repo_url }}/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins"
+
+- name: Install the ambari-server package
+  package:
+    name: ambari-server
+    state: latest
+
+
+
+
+    

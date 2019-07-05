@@ -11,7 +11,7 @@
 
 # Disable SELinux
 - selinux:
-  state: disabled
+    state: disabled
 
 - name: setenforce
   shell: setenforce 0
@@ -24,15 +24,17 @@
   ignore_errors: yes
 
 
-- name: Set /etc/hosts if DNS not available
-  copy:
-    remote_src: no
-    src: roles/files/hostnames
-    dest: /etc/hosts
-    owner: root
-    group: root
-    mode: 0644
+#- name: Set /etc/hosts if DNS not available
+#  copy:
+#    remote_src: no
+#    src: roles/files/hostnames
+#    dest: /etc/hosts
+#    owner: root
+#    group: root
+#   mode: 0644
 
+- name: Configure /etc/hosts if DNS not in use
+  template: src=hostnames dest=/etc/hosts
 
 - name: Install ntp
   yum:
