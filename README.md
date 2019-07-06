@@ -46,6 +46,11 @@ ansible-playbook -u "ssh_user" --inventory-file=hosts provision.yml
 
 The deployment can be verified by accessing the IP address of the Ambari server in a web browser "http://ambari-server:8080"
 
+Credentials:
+
+User: admin
+Password: admin
+
 
 
 
