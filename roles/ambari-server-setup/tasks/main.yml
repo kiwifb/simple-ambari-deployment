@@ -10,7 +10,7 @@
 - name: setup ambari postgresql jdbc
   shell: ambari-server setup --jdbc-driver=/usr/share/java/postgresql-jdbc.jar --jdbc-db={{db}}
 
-- name: setup ambari postgresql jdbc
+- name: setup ambari server
   shell: /usr/sbin/ambari-server setup --database={{db}} --databasehost={{db_host}} --databaseport={{db_port}} --databasename={{db_name}} --databaseusername={{db_username}} --databasepassword={{db_password}} -s
     
 - name: start ambari-server
@@ -18,6 +18,13 @@
     name: ambari-server
     state: restarted
 
+- name: Check that Ambari-Server is up
+  uri:
+    url: http://{{ ansible_host }}:8080
+  register: this
+
+- debug:
+    var: this
         
     
 

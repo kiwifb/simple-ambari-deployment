@@ -12,9 +12,11 @@
 # Disable SELinux
 - selinux:
     state: disabled
+  ignore_errors: yes
 
 - name: setenforce
   shell: setenforce 0
+  ignore_errors: yes
 
 - name: Stop and disable firewalld 
   systemd: 

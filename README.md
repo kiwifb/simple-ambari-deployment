@@ -2,7 +2,7 @@ Ambari-Server with postgresql metastore + Ambari Clients
 -----------------------------------------------------------------------------
 
 - Test made with Ansible 2.7.5
-- Expects CentOS/RHEL 6/7 hosts
+- Expects CentOS/RHEL 7 hosts
 
 This playbook will deploy an Ambari server with postgresql configured as it's metastore and n number of Ambari Clients that will communicate with the Server.
 There is tags in place, so if we want to run only a specific role(ex. db_setup) and don't do the full deployment just add --tags "db_setup" to ansible-playbook command
