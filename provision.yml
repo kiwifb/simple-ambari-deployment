@@ -7,7 +7,11 @@
   become_method: sudo
 
   roles:
-  - environment
+    - environment
+
+  tags:
+    - environment
+
 
 # Configure and deploy ambari server together with postgres
 - hosts: ambari-server
@@ -15,8 +19,13 @@
   become_method: sudo
 
   roles:
-  - ambari-server
-  - db_install
+    - ambari-server
+    - db_install
+
+  tags:
+    - ambari-server
+    - db_install
+
 
 - hosts: ambari-server
   become: yes
@@ -26,12 +35,31 @@
   roles:
     - db_setup
 
+  tags:
+    - db_setup
+
 - hosts: ambari-server
   become: yes
   become_method: sudo
 
   roles:
     - ambari-server-setup
+
+  tags:
+    - ambari-server-setup
+
+- hosts: ambari-clients
+  become: yes
+  become_method: sudo
+
+  roles:
+    - ambari-agent
+
+  tags:
+    - ambari-agent
+
+
+
 
 
 

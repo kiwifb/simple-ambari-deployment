@@ -1,5 +1,5 @@
 [ambari-server]
-pandrade-2
+pandrade-1
 
 [ambari-clients]
 pandrade-[2:3]
