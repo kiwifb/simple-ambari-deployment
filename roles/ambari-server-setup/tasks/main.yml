@@ -2,17 +2,9 @@
 
 ---
 
-- name: Install the postgresql connector
-  package:
-    name: postgresql-jdbc
-    state: latest
+- name: setup ambari
+  shell: ambari-server setup -s -v
 
-- name: setup ambari postgresql jdbc
-  shell: ambari-server setup --jdbc-driver=/usr/share/java/postgresql-jdbc.jar --jdbc-db={{db}}
-
-- name: setup ambari server
-  shell: /usr/sbin/ambari-server setup --database={{db}} --databasehost={{db_host}} --databaseport={{db_port}} --databasename={{db_name}} --databaseusername={{db_username}} --databasepassword={{db_password}} -s
-    
 - name: start ambari-server
   systemd:
     name: ambari-server
