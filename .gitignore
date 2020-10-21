@@ -1,0 +1,6 @@
+# Ansible output files
+*.retry
+*.log
+
+# OS X files
+.DS_Store
