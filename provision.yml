@@ -3,8 +3,6 @@
 
 # Apply common configuration to all hosts
 - hosts: all
-  become: yes
-  become_method: sudo
 
   roles:
     - environment
@@ -15,8 +13,6 @@
 
 # Configure and deploy ambari server together with postgres
 - hosts: ambari-server
-  become: yes
-  become_method: sudo
 
   roles:
     - ambari-server
@@ -28,9 +24,7 @@
 
 
 - hosts: ambari-server
-  become: yes
   become_user: postgres
-  become_method: sudo
 
   roles:
     - db_setup
@@ -39,8 +33,6 @@
     - db_setup
 
 - hosts: ambari-server
-  become: yes
-  become_method: sudo
 
   roles:
     - ambari-server-setup
@@ -49,8 +41,6 @@
     - ambari-server-setup
 
 - hosts: ambari-clients
-  become: yes
-  become_method: sudo
 
   roles:
     - ambari-agent
