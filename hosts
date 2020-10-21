@@ -1,14 +1,6 @@
 [ambari-server]
-pandrade-1
 
 [ambari-clients]
-pandrade-[2:3]
-
-
-[all-nodes]
-pandrade-[1:3]
-
 
 [db-host]
-pandrade-1
 
