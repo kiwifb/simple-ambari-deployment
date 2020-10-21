@@ -16,21 +16,9 @@
 
   roles:
     - ambari-server
-    - db_install
 
   tags:
     - ambari-server
-    - db_install
-
-
-- hosts: ambari-server
-  become_user: postgres
-
-  roles:
-    - db_setup
-
-  tags:
-    - db_setup
 
 - hosts: ambari-server
 
