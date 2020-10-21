@@ -1,8 +1,0 @@
----
-# The variables file used by the playbooks in the ambari-clients group.
-# These don't have to be explicitly imported by vars_files: they are autopopulated.
-
-key_url: http://s3.amazonaws.com/dev.hortonworks.com/ambari/centos7/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
-repo_url: http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.3.0
-ambari_version: 2.7.3.0
-ambari_server_hn: pandrade-1
