@@ -1,0 +1,16 @@
+# Ansible role to install the ambari repo on all nodes
+
+---
+
+- name: Add the Ambari repository (yum)
+  yum_repository:
+    name: "ambari"
+    description: "ambari Version - ambari-{{ ambari_version }}"
+    baseurl: "{{ repo_url }}"
+    state: present
+    gpgcheck: yes
+    gpgkey: "{{ key_url }}"
+
+
+
+    
