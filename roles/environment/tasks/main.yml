@@ -26,17 +26,15 @@
   ignore_errors: yes
 
 
-#- name: Set /etc/hosts if DNS not available
-#  copy:
-#    remote_src: no
-#    src: roles/files/hostnames
-#    dest: /etc/hosts
-#    owner: root
-#    group: root
-#   mode: 0644
+# Set /etc/hosts 
 
-- name: Configure /etc/hosts if DNS not in use
-  template: src=hostnames dest=/etc/hosts
+- name: insert hostname in hosts
+  lineinfile:
+    path: /etc/hosts
+    regexp: '^{{ item }}'
+    insertafter: '^127.0.1.1'
+    line: "{{ item }}    {{ hostvars[ item ]['ansible_facts']['nodename'] }}"
+  loop: "{{ ansible_play_hosts }}"
 
 - name: Install ntp
   yum:
