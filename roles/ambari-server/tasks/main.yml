@@ -7,10 +7,9 @@
     name: "ambari"
     description: "ambari Version - ambari-{{ ambari_version }}"
     baseurl: "{{ repo_url }}"
-    file: 'ambari'
     state: present
     gpgcheck: yes
-    gpgkey: "{{ repo_url }}/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins"
+    gpgkey: "{{ key_url }}"
 
 - name: Install the ambari-server package
   package:
