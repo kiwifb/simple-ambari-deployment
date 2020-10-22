@@ -2,6 +2,20 @@
 
 ---
 
+- name: Add the HDP repository (yum)
+  yum_repository:
+    name: "hdp"
+    description: "HDP stack version {{ hdp_version }}"
+    baseurl: "{{ hdp_repo_url }}"
+    state: present
+    gpgcheck: yes
+    gpgkey: "{{ hdp_key_url }}"
+
+- name: Install the ambari-server package
+  package:
+    name: ambari-server
+    state: latest
+
 - name: setup ambari
   shell: ambari-server setup -s -v
 
