@@ -1,6 +1,6 @@
-[ambari-server]
+[ambari_server]
 
-[ambari-clients]
+[ambari_clients]
 
-[db-host]
+[db_host]
 

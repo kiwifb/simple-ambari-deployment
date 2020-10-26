@@ -11,7 +11,7 @@
   lineinfile:
     path: /etc/ambari-agent/conf/ambari-agent.ini
     regexp: "^hostname="
-    line: "hostname={{ hostvars[ groups['ambari-server'][0] ]['ansible_facts']['nodename'] }}"
+    line: "hostname={{ hostvars[ groups['ambari_server'][0] ]['ansible_facts']['nodename'] }}"
 
 - name: Restart ambari-agent
   systemd:

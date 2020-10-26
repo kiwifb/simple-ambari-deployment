@@ -14,7 +14,7 @@
 
 
 # Configure and deploy ambari server
-- hosts: ambari-server
+- hosts: ambari_server
 
   roles:
     - ambari-server-setup
@@ -23,7 +23,7 @@
     - ambari-server-setup
 
 # Install the agents on the clients
-- hosts: ambari-clients
+- hosts: ambari_clients
 
   roles:
     - ambari-agent
