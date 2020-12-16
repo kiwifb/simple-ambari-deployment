@@ -35,7 +35,7 @@
 # The ambari server is a good place for a small database deployment
 - hosts: db_host
 
-  role:
+  roles:
     - database
 
   tags:
