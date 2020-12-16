@@ -4,8 +4,8 @@
 - name: update mysql/mariadb root password
   mysql_user:
     name: root
-    host: {{ item }}
-    password: {{ root_db_password }}
+    host: "{{ item }}"
+    password: "{{ root_db_password }}"
   with_items:
     - 127.0.0.1
     - ::1
@@ -21,7 +21,7 @@
 - name: Delete anonymous MySQL user
   mysql_user: 
     name: ""
-    host: {{ item }}
+    host: "{{ item }}"
     state: absent
   with_item:
     - localhost
