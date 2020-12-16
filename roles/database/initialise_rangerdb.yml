@@ -1,0 +1,9 @@
+# initialise rangerdb
+---
+- name: create the rangerdba user with its privileges
+  mysql_user:
+    name: rangerdba
+    host: {{ item }}
+    password: {{ rangerdb_password }}
+    priv: '*.*:ALL,GRANT'
+    state: present

@@ -16,9 +16,21 @@
     name: ambari-server
     state: latest
 
+- name: install data connector for use with mysql/mariadb
+  package:
+    name: mysql-connector-java
+    state: latest
+
+- name: Finding the connector location
+  shell: rpm -ql mysql-connector-java | grep mysql-connector-java.jar
+  register: connector_jar
+
 - name: setup ambari
   shell: ambari-server setup -s -v
 
+- name: setup the connector
+  shell: ambari-server setup --jdbc-db=mysql --jdbc-driver="{{ connector_jar }}"
+  
 - name: start ambari-server
   systemd:
     name: ambari-server

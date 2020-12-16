@@ -1,0 +1,6 @@
+---
+# The variables file used by the db_host groups.
+
+root_db_password: TheMariaDB_Passw0rd
+
+rangerdb_password: rangerdb_passw0rd

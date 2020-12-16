@@ -1,0 +1,18 @@
+# Install and start
+---
+
+- name: Install mariadb
+  package:
+    name: mariadb-server
+    state: latest
+
+- name: Install python mysql support libraries
+  package:
+    name: MySQL-python
+    state: latest
+
+- name: start mariadb-server
+  systemd:
+    name: mariadb
+    enabled: yes
+    state: started

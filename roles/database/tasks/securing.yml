@@ -1,0 +1,39 @@
+# Secure MariaDB
+---
+# Securing the installation: setting a root password
+- name: update mysql/mariadb root password
+  mysql_user:
+    name: root
+    host: {{ item }}
+    password: {{ root_db_password }}
+  with_items:
+    - 127.0.0.1
+    - ::1
+    - localhost
+    
+- name: Set /root/.my.cnf file
+  template:
+    src: dotmy.cnf.j2
+    dest: /root/.my.cnf
+    mode: 0600
+    
+# Securing the installation: no anonymous user 
+- name: Delete anonymous MySQL user
+    mysql_user: ""
+    host: {{ item }}
+    state: absent
+  with_item:
+    - localhost
+    - "{{ ansible_nodename }}"
+    
+- name: Delete hostname based MySQL user
+  mysql_user:
+    name: root
+    host: "{{ ansible_nodename }}"
+    state: absent
+    
+# Securing the installation: no test database
+- name: Remove MySQL test database
+  mysql_db:
+    name: test
+    state: absent
