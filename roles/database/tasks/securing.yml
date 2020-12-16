@@ -23,7 +23,7 @@
     name: ""
     host: "{{ item }}"
     state: absent
-  with_item:
+  with_items:
     - localhost
     - "{{ ansible_nodename }}"
     
