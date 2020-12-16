@@ -19,7 +19,8 @@
     
 # Securing the installation: no anonymous user 
 - name: Delete anonymous MySQL user
-    mysql_user: ""
+  mysql_user: 
+    name: ""
     host: {{ item }}
     state: absent
   with_item:
