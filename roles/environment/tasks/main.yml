@@ -7,7 +7,7 @@
     domain: '*'
     limit_type: soft
     limit_item: nofile
-    value: 64000
+    value: "64000"
 
 # Disable SELinux
 - selinux:
