@@ -2,6 +2,6 @@
 # The variables file used by the server groups.
 # We define the variable to setup the HDP repo
 
-hdp_version: 3.1.4.0
+hdp_version: 3.1.5.0
 hdp_repo_url: "http://public-repo-1.hortonworks.com/HDP/centos7/3.x/updates/{{ hdp_version }}"
 hdp_key_url: "{{ repo_url }}/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins"
