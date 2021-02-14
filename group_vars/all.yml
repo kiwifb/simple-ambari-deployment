@@ -1,6 +1,10 @@
 ---
 # The variables file used by all groups. We define the ambari repo and version used across groups.
 
-ambari_version: 2.7.4.0
-repo_url: "http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/{{ ambari_version }}"
+ambari_version: 2.7.5.0
+repo_url: "http://archive.cloudera.com/p/ambari/centos7/2.x/updates/{{ ambari_version }}"
 key_url: "{{ repo_url }}/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins"
+
+# starting with ambari 2.7.5.0 and HDP 3.1.5.0 a username and password are required to access the repos
+repo_username: ""
+repo_password: ""
