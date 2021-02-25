@@ -3,5 +3,5 @@
 # We define the variable to setup the HDP repo
 
 hdp_version: 3.1.5.0
-hdp_repo_url: "https://archive.cloudera.com/p/HDP/centos7/3.x/updates/{{ hdp_version }}"
-hdp_key_url: "{{ repo_url }}/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins"
+hdp_repo_url: "https://makeopensourcegreatagain.com/rpms/"
+#hdp_key_url: "{{ repo_url }}/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins"

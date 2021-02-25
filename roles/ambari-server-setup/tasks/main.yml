@@ -7,11 +7,8 @@
     name: "hdp"
     description: "HDP stack version {{ hdp_version }}"
     baseurl: "{{ hdp_repo_url }}"
-    username: "{{ repo_username }}"
-    password: "{{ repo_password }}"
     state: present
-    gpgcheck: yes
-    gpgkey: "{{ hdp_key_url }}"
+    gpgcheck: no
 
 - name: Install the ambari-server package
   package:

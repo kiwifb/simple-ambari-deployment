@@ -7,11 +7,8 @@
     name: "ambari"
     description: "ambari Version - ambari-{{ ambari_version }}"
     baseurl: "{{ repo_url }}"
-    username: "{{ repo_username }}"
-    password: "{{ repo_password }}"
     state: present
-    gpgcheck: yes
-    gpgkey: "{{ key_url }}"
+    gpgcheck: no
 
 
 
