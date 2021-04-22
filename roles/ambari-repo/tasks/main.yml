@@ -2,13 +2,11 @@
 
 ---
 
-- name: Add the Ambari repository (yum)
+- name: Add the bigtop repo for Ambari repository (yum)
   yum_repository:
-    name: "ambari"
-    description: "ambari Version - ambari-{{ ambari_version }}"
+    name: "bigtop"
+    description: "Bigtop repository for hadoop rpms"
     baseurl: "{{ repo_url }}"
-    username: "{{ repo_username }}"
-    password: "{{ repo_password }}"
     state: present
     gpgcheck: yes
     gpgkey: "{{ key_url }}"

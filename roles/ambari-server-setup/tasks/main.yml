@@ -2,20 +2,14 @@
 
 ---
 
-- name: Add the HDP repository (yum)
-  yum_repository:
-    name: "hdp"
-    description: "HDP stack version {{ hdp_version }}"
-    baseurl: "{{ hdp_repo_url }}"
-    username: "{{ repo_username }}"
-    password: "{{ repo_password }}"
-    state: present
-    gpgcheck: yes
-    gpgkey: "{{ hdp_key_url }}"
-
 - name: Install the ambari-server package
   package:
     name: ambari-server
+    state: latest
+
+- name: Install ambari standard mpacks
+  package:
+    name: bigtop-ambari-mpack
     state: latest
 
 - name: install data connector for use with mysql/mariadb
