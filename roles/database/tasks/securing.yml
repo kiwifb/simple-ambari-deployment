@@ -1,5 +1,11 @@
 # Secure MariaDB
 ---
+- name: Set /root/.my.cnf file
+  template:
+    src: dotmy.cnf.j2
+    dest: /root/.my.cnf
+    mode: 0600
+    
 # Securing the installation: setting a root password
 - name: update mysql/mariadb root password
   mysql_user:
@@ -10,12 +16,6 @@
     - 127.0.0.1
     - ::1
     - localhost
-    
-- name: Set /root/.my.cnf file
-  template:
-    src: dotmy.cnf.j2
-    dest: /root/.my.cnf
-    mode: 0600
     
 # Securing the installation: no anonymous user 
 - name: Delete anonymous MySQL user
