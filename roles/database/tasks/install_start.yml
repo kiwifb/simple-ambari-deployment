@@ -8,7 +8,10 @@
 
 - name: Install python mysql connector libraries
   package:
-    name: python-mysql.connector
+    name: 
+      - python-mysql.connector
+      - python-pymysql
+      - python3-pymysql
     state: latest
 
 - name: start mariadb-server
