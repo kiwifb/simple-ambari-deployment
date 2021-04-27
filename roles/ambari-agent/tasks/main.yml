@@ -13,6 +13,13 @@
     regexp: "^hostname="
     line: "hostname={{ hostvars[ groups['ambari_server'][0] ]['ansible_facts']['nodename'] }}"
 
+- name: Force TLS1.2
+  lineinfile:
+    path: /etc/ambari-agent/conf/ambari-agent.ini
+    regexp: "^force_https_protocol"
+    insertafter: "^[security]
+    line: "force_https_protocol=PROTOCOL_TLSv1_2"  
+
 - name: Restart ambari-agent
   systemd:
     name: ambari-agent
