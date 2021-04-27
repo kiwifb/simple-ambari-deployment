@@ -42,7 +42,6 @@
     -h localhost
     -e "delete from mysql.user where User='root' and Host NOT IN ('localhost', '127.0.0.1');"
   when:
-    - allow_remote_connections
     - check_passwd_root.rc == 0
 
 - name: Set MariaDB root password for 127.0.0.1, localhost
