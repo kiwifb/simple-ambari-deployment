@@ -7,7 +7,7 @@
     name: ambari-server
     state: latest
 
-- name: Install ambari standard mpacks
+- name: Install ambari standard mpacks rpm
   package:
     name: bigtop-ambari-mpack
     state: latest
@@ -22,7 +22,13 @@
 
 - name: setup the connector
   shell: ambari-server setup --jdbc-db=mysql --jdbc-driver=/usr/share/java/mysql-connector-java.jar
-  
+ 
+- name: install the bigtop mpack
+  shell: ambari-server install-mpack --mpack=/usr/lib/bigtop-ambari-mpack/bgtp-ambari-mpack-1.0.0.0-SNAPSHOT-bgtp-ambari-mpack.tar.gz
+
+- name: install the ODPi mpack
+  shell: ambari-server install-mpack --mpack=/var/lib/ambari-server/resources/odpi-ambari-mpack-1.0.0.0-SNAPSHOT.tar.gz
+
 - name: start ambari-server
   systemd:
     name: ambari-server
