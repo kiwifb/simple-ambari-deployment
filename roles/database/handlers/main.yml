@@ -1,0 +1,9 @@
+---
+# handlers file for mariadb
+# Stolen from https://github.com/mahdi22/ansible-mariadb-install a playbook by Mahdi Bourbita published under BSD-3 license.
+
+- name: Remove test database priviledges
+  command: mysql -u root -p{{ mysql_root_password }} -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%'"
+
+- name: Flush Priviliges
+  command: mysql -u root -p{{ mysql_root_password }} -e "FLUSH PRIVILEGES"
