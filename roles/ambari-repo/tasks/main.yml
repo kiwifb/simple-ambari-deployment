@@ -2,15 +2,14 @@
 
 ---
 
-- name: Add the bigtop repo for Ambari repository (yum)
-  yum_repository:
-    name: "bigtop"
-    description: "Bigtop repository for hadoop rpms"
-    baseurl: "{{ repo_url }}"
+- name: Add bigtop key
+  apt_key:
+    url: "{{ key_url }}"
     state: present
-    gpgcheck: yes
-    gpgkey: "{{ key_url }}"
 
+- name: Add the bigtop repo for Ambari repository (apt)
+  apt_repository:
+    repo: "deb http://repos.bigtop.apache.org/releases/1.5.0/ubuntu/18.04/$(ARCH) bigtop contrib"
 
 
     

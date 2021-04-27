@@ -1,12 +1,13 @@
 Ambari-Server with postgresql metastore + Ambari Clients
 -----------------------------------------------------------------------------
 
-- Expects CentOS/RHEL 7 hosts
+- Expects Ubuntu (18.04) hosts
 
 This playbook will deploy a simple Ambari server with the default ambari database and n number of Ambari Clients that will communicate with the Server.
 There is tags in place, so if we want to run only a specific role and don't do the full deployment just add --tags "some_tag" to the ansible-playbook command.
 This was forked from https://github.com/PedroAndrade89/ambari_deploy, I intend it to be a very basic deployment of the
 basic structure of the ambari cluster. It is not meant, as other repo do, to manage ambari blueprints. The original does a separate deployment and configuration of postgresql, this may be re-added as an option in the future.
+A version for Centos/RedHat 7 is currently available in a separate branch.
 
 ### Prerequesites
 

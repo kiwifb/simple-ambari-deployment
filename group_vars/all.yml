@@ -1,6 +1,6 @@
 ---
 # The variables file used by all groups. We define set bigtop repo for ambari and hadoop..
 
-repo_url: "http://repos.bigtop.apache.org/releases/1.5.0/centos/7/$basearch"
-key_url: "https://dist.apache.org/repos/dist/release/bigtop/KEYS"
+repo_url: "http://repos.bigtop.apache.org/releases/1.5.0/ubuntu/18.04/$(ARCH)"
+key_url: "https://apache.inspire.net.nz/bigtop/bigtop-1.5.0/repos/GPG-KEY-bigtop"
 
