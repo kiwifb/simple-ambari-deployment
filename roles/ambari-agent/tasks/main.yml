@@ -17,7 +17,7 @@
   lineinfile:
     path: /etc/ambari-agent/conf/ambari-agent.ini
     regexp: "^force_https_protocol"
-    insertafter: "^[security]
+    insertafter: "^[security]"
     line: "force_https_protocol=PROTOCOL_TLSv1_2"  
 
 - name: Restart ambari-agent
