@@ -14,7 +14,7 @@
 
 - name: install data connector for use with mysql/mariadb
   package:
-    name: mysql-connector-java
+    name: libmysql-java
     state: latest
 
 - name: setup ambari
