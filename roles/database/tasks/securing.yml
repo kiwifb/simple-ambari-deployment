@@ -51,7 +51,7 @@
     host: "{{ item }}"
     login_user: root
     #login_password: "{{ mysql_root_password }}"
-    login_unix_socket: "{{ mariadb_socket }}"
+    login_unix_socket: /run/mysqld/mysqld.sock
     state: present
   with_items:
     - 127.0.0.1
