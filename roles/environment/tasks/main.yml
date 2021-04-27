@@ -9,23 +9,6 @@
     limit_item: nofile
     value: "64000"
 
-# Disable SELinux
-- selinux:
-    state: disabled
-  ignore_errors: yes
-
-- name: setenforce
-  shell: setenforce 0
-  ignore_errors: yes
-
-- name: Stop and disable firewalld 
-  systemd: 
-    name: firewalld 
-    state: stopped
-    enabled: False
-  ignore_errors: yes
-
-
 # Set /etc/hosts 
 
 - name: insert hostname in hosts
@@ -37,12 +20,12 @@
   loop: "{{ ansible_play_hosts }}"
 
 - name: Install ntp
-  yum:
+  package:
     name: ntp
     state: present
     
 
 - name: Start ntp 
   systemd:
-    name: ntpd
+    name: ntp
     state: started
