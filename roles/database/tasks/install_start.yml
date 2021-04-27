@@ -6,9 +6,9 @@
     name: mariadb-server
     state: latest
 
-- name: Install python mysql support libraries
+- name: Install python mysql connector libraries
   package:
-    name: MySQL-python
+    name: python-mysql.connector
     state: latest
 
 - name: start mariadb-server
